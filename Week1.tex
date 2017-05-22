@@ -1,14 +1,13 @@
 \documentclass[12 pt]{article}
+\usepackage{easycalc3}
 \usepackage{setspace}
 \usepackage{enumerate}
-\usepackage{amsmath,amsthm}
 \usepackage{lastpage}
-\usepackage{mathtools,float}
+\usepackage{float}
 \usepackage{fancyhdr}
 \usepackage{tikz}
 \usepackage{tabularx}
 \usepackage{ltablex}
-\usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
@@ -17,17 +16,6 @@
 %\usepackage[dvipsnames]{xcolor}   %May be necessary if you want to color links
 \usepackage{graphicx}
 \graphicspath{{Images/}}
-\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
-\newcommand{\sumz}{\sum\limits_{n=0}^{\infty}}
-\newcommand{\sumo}{\sum\limits_{n=1}^{\infty}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\toinfty}{\rightarrow\infty}
-\newtheorem{exmp}{Example}[section]
-\newtheorem*{exmp*}{Example}
-\newtheorem*{def*}{Definition}
-\newtheorem*{thrm}{Theorem}
-\newtheorem*{remark}{Remark}
 \author{Sarah Randall}
 \date{Last updated: \today}
 \title{MATH 222: Week 1}
@@ -50,7 +38,7 @@
 				\\a_1&=2,\ a_2=\frac{3}{2},\ a_3=\frac{4}{3},\ ...
 			\end{align*}
 		\end{exmp*}
-		A sequence can also be def*ined recursively (like the Fibonacci sequence)
+		A sequence can also be defined recursively (like the Fibonacci sequence)
 		but we won't use those much.\\\\
 		Thinking of $a_n$ as a function $f(n):N\rightarrow R$ can be useful
 		when studying the limit for large $n$.
