@@ -1,0 +1,297 @@
+\documentclass[12 pt]{article}
+\usepackage{easycalc3}
+\usepackage{setspace}
+\usepackage{enumerate}
+%\usepackage{amsmath,amsthm}
+\usepackage{lastpage}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{ltablex}
+%\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage[margin=1 in]{geometry}
+\allowdisplaybreaks
+%\usepackage[dvipsnames]{xcolor}   %May be necessary if you want to color links
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+
+% \newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+% \newcommand{\sumz}{\sum\limits_{n=0}^{\infty}}
+% \newcommand{\sumo}{\sum\limits_{n=1}^{\infty}}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\N}{\mathbb{N}}
+% \newcommand{\toinfty}{\rightarrow\infty}
+% \newcommand{\dotp}[2]{\vec{#1}\cdot\vec{#2}}
+% \newcommand{\crossp}[2]{\vec{#1}\times\vec{#2}}
+% \newcommand{\magn}[1]{\parallel \vec{#1} \parallel}
+% \newtheorem{exmp}{Example}[section]
+% \newtheorem*{exmp*}{Example}
+% \newtheorem*{def*}{Definition}
+% \newtheorem*{thrm}{Theorem}
+% \newtheorem*{remark}{Remark}
+\author{Sarah Randall}
+\date{Last updated: \today}
+\title{MATH 222: Week 2}
+\pagestyle{fancy}
+\lhead{MATH 222}
+\chead{\leftmark}
+\rhead{Sarah Randall}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+\begin{document}
+	\onehalfspacing
+	\maketitle
+	\tableofcontents
+    \section{\S 12.1 Coordinate System}
+        $\R^3$ is the set of all triples $(x,y,z)$ for $x,y,x\in\R$
+        \subsection{Distance between two points in $\R^3$}
+
+        $D=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}=\magn{X_2X_1}$
+        \subsection{Equation of Sphere}
+
+        A sphere with a non-zero radius centered at a point $P(a,b,c)$ is\\
+        $(x-a)^2+(y-b)^2+(z-c)^2=r^2$
+	\section{\S 12.2 Vectors}
+		A vector describes a quantity that has both magnitude and direction. If two vectors have the same magnitude and direction but start from different points, the vectors are still the same.
+
+		\subsection{Vector Components}
+
+		Vectors can be broken down into their components such that $\magn{a}=\sqrt{(a_1)^2+(a_2)^2+(a_3)^2}$ for a vector in $\R^3$\\\\
+		\textbf{Here there is a lot of review of vector properties. I will not include this.}
+	\section{\S 12.3 Dot Product}
+		\begin{def*}If $\vec{a}=<a_1,a_2,a_3>,\ \vec{b}=<b_1,b_2,b_3>$ then the dot product $\dotp{a}{b}$ is $a_1b_1+a_2b_2+a_3b_3=c\in\R$
+		\end{def*}
+
+		\subsection{Properties of Dot Product}
+
+		\begin{enumerate}[i)]
+			\item $\dotp{a}{a}=\magn{a}^2$
+			\item $\dotp{a}{b}=\vec{b}\cdot\vec{a}$
+			\item $\vec{a}\cdot (\dotp{b}{c})=\dotp{a}{b}+\dotp{a}{c}$
+			\item $(r\vec{a})\cdot\vec{b}=\vec{a}\cdot(r\vec{b})$
+			\item $\dotp{0}{a}=\vec{0}$
+		\end{enumerate}
+		\begin{thrm}
+			If $\theta$ is the angle between $\vec{a},\vec{b}$ then $\dotp{a}{b}=\parallel\vec{a}\parallel*\parallel\vec{b}\parallel *cos(\theta)$
+		\end{thrm}
+
+		\subsection{Law of Cosines}
+
+		$$\magn{a-b}^2=\magn{a}^2+\magn{b}^2-2\magn{a}\magn{b}cos(\theta)$$
+		Which leads to:\\
+		$$\theta=arccos(\frac{\dotp{a}{b}}{\magn{a}\magn{b}})$$
+
+		\subsection{Component and Projection}
+
+		The component of $\vec{b}$ along $\vec{a}$, the length of the component of $\vec{b}$ parallel to $\vec{a}$ is:
+		$$\magn{p}=\frac{\dotp{a}{b}}{\magn{b}}$$
+		By finding a unit vector in the direction $\vec{a}$ and multiplying it by the component, it's possible to find the projection of $\vec{b}$ onto $\vec{a}$:
+		$$\vec{p}=\frac{\dotp{a}{b}}{\magn{b}}*\frac{\vec{a}}{\magn{a}}=(\frac{\dotp{a}{b}}{\magn{a}^2})\vec{a}$$
+
+		\begin{exmp*}
+			$\vec{b}=<2,4,6>,\ \vec{a}=<2,0,1>$. Find the projection $\vec{p}$ of $\vec{b}$ onto $\vec{a}$ and another vector that equals $\vec{b}-\vec{p}$\\
+			Use the formula for the projection first.
+			$$\vec{p}=\frac{4+0+6}{2}\vec{a}=2\vec{a}=<4,0,2>$$
+			That's one vector, now we need to do $\vec{b}-\vec{p}$
+			$$<2,4,6>-<4,0,2>=<-2,4,4>$$
+			Check if these two vectors are perpendicular using dot product
+			$$(-2\cdot 4)+(4\cdot 0)+(4\cdot 2)=-4+0+4=0$$
+			The two vectors we found are the vector components of $\vec{b}$ that are parallel and perpendicular (respectively) to $\vec{a}$.
+		\end{exmp*}
+
+	\section{\S 12.4 Cross Product}
+		Given two vectors $\vec{a},\vec{b}$, we often want to find some third vector $\vec{c}$ that is orthogonal/perpendicular to both. In terms of the dot product, we want to find $\vec{c}=<c_1,c_2,c_3>$ such that:
+		$$a_1c_1+a_2c_2+a_3c_3=0$$
+		$$b_1c_1+b_2c_2+b_3c_3=0$$
+		We can use these equations to discover that $c_1=a_2b_3-a_3b_2$, $c_2=-(a_1b_3-a_3b_1)$, and $c_3=a_1b_2-a_2b_1$. We call the vector $\vec{c}$ who is defined as $<c_1,c_2,c_3>$ the \textbf{cross product}.
+
+		\subsection{Computing Cross Product}
+
+		It's much easier to compute the cross product using the familiar action of finding the determinant of a 3x3 matrix.\\
+		\begin{center}
+		$\crossp{a}{b}=det
+		\begin{bmatrix}
+			i & j & k \\
+			a_1 & a_2 & a_3 \\
+			b_1 & b_2 & b_3
+		\end{bmatrix}
+		=\vec{i}(a_2b_3-a_3b_2)-\vec{j}(a_1b_3-a_3b_1)+\vec{k}(a_1b_2-a_2b_1)$
+		\end{center}
+		\begin{thrm}
+			If $\theta$ is the angle between $\vec{a}, \vec{b}$ then
+			$\parallel \crossp{a}{b}\parallel=\magn{a}\magn{b}\sin{\theta}$
+		\end{thrm}
+		\begin{remark}
+			2 non-zero vectors are parallel $Leftrightarrow$ $\crossp{a}{b}=\vec{0}$
+		\end{remark}
+		\begin{remark}
+			The length of $\crossp{a}{b}$ is equal to the area of the parallelogram formed by $\vec{a},\vec{b}$
+		\end{remark}
+
+		\subsection{Properties of Cross Product}
+
+		\begin{enumerate}[i)]
+			\item $\crossp{a}{b}=-\crossp{b}{a}$
+			\item $r\vec{a}\times\vec{b}=r(\crossp{a}{b})=\vec{a}\times r\vec{b}$
+			\item $\vec{a}\times (\vec{b}+\vec{c})=\crossp{a}{b}+\crossp{a}{c}$
+			\item $(\vec{a}+\vec{b})\times\vec{c}=\crossp{a}{c}+\crossp{b}{c}$
+			\item $\vec{a}\cdot (\crossp{a}{c})=(\crossp{a}{b})\cdot \vec{c}$
+			\item $\vec{a}\times (\crossp{b}{c})=(\dotp{a}{c})(\vec{b})-(\dotp{a}{b})(\vec{c})$
+		\end{enumerate}
+
+		\begin{def*}\textbf{Scalar Triple Product}\\
+			We call $\vec{a}\cdot (\crossp{b}{c})$ the scalar triple product and it can be found with:\\
+			\begin{center}$det\begin{bmatrix}
+				a_1 & a_2 & a_3 \\
+				b_1 & b_2 & b_3 \\
+				c_1 & c_2 & c_3
+			\end{bmatrix}$\end{center}
+			The volume of a parallelpiped determined by $\vec{a},\vec{b},\vec{c}$ is given by the scalar triple product
+		\end{def*}
+
+		\begin{remark}
+			If $\lvert \vec{a}\cdot (\crossp{b}{c})\rvert = 0$ then $\vec{a},\vec{b},\vec{c}$ 	are coplanar vectors
+		\end{remark}
+
+	\section{\S 12.5 Equations of Lines and Planes}
+		There are several ways of defining lines and there are different reasons to use each representation. The two main representations are vector equations and parametric equations. There are also symmetric equations that are defined by solving each part of a parametric form of a line for $t$, but we haven't used that so much in this course.
+
+		\subsection{Vector Equation of Line}
+		$$\vec{x}=\vec{r_0}+t\vec{v}$$
+		This is similar to the slope-intercept form of a line. The point $r_0$ is the value of $\vec{x}$ when $t$ equals 0. It can also be thought of as the "offset" from the origin. $\vec{v}$ is a vector representing the direction of the line.
+		\begin{exmp*}
+			Find an equation for a line that passes through P(1,2,3) and Q(4,-1,2). Also find a 3rd point on this line.\\
+			We can find $\vec{v}$ by subtracting P from Q (or vice versa)
+			$$\vec{v}=(4,-1,2)-(1,2,3)=<3,-3,-1>$$
+			We already have some points on the line, so just pick one and we have the equation $L=<1,2,3>+t<3,-3,-1>$. We can plus in $t=-1$ to get another point R(-2,5,2).
+		\end{exmp*}
+
+		\subsection{Parametric Equation of Line}
+		The parametric equation is almost identical to the vector equation except the data representation is slightly altered.\\
+		\begin{center}
+			$\begin{pmatrix}x \\ y \\ z\end{pmatrix}=\begin{pmatrix}x_0 \\ y_0 \\ z_0\end{pmatrix}+t\begin{pmatrix}a \\ b \\ c\end{pmatrix} \Rightarrow \begin{matrix} x=x_0+at \\ y=y_0+bt \\ z=z_0+ct\end{matrix}$
+		\end{center}
+
+		In $\R^3$ lines are either intersecting, parallel, or skew. There are distinct tests for seeing if lines intersect or are parallel but the test to see if lines are skew is just to test if they neither intersect or are parallel.
+
+		\subsection{Planes}
+
+		A plane in $\R^3$ is a 2-dimensional object which can be determined by a position vector $\vec{r_0}$ and a normal vector $\vec{n}$. The normal vector is perpendicular to all vectors in the plane.
+
+		Suppose $r_0$ is a point on the plane $P$, then it's possible to test if another point $r$ is also on the plane $P$ if $\vec{n}\cdot (\vec{r}-\vec{r_0})=0$
+
+		From this expression we can find the equation of a plane
+		$$<a,b,c>\cdot<x-x_0,y-y_0,z-z_0>=0$$
+		$$ax-ax_0+by-by_0+cz-cz_0=0$$
+		$$ax+by+cz=ax_0+by_0+cz_0$$
+		We typically call the right side of this equation $d$, so the equation of the plane is
+		$$ax+bt+cz=d$$
+
+		\begin{exmp*}
+			Find an equation for a plane containing point (1,1,1) eith normal vector $\vec{n}=<1,3,-1>$
+			$$<1,3,-1>\cdot<x-1,y-1,z-1>=0$$
+			$$(x-1)+3(y-1)+(-z+1)=0$$
+			$$x+3y-z=3$$
+		\end{exmp*}
+
+		\subsection{Distance between point and line}
+
+		A really common question on tests is finding either the distance between a point and a line, finding another line perpendicular to the first that passes through a point, or finding a point on the line closest to some other point.
+
+		Suppose you have a line $L=\vec{r_0}+t\vec{v}$ and a point $P$. The vector we want to find is called $\vec{u}$ which has its tail at $P$ and its head on $L$ at the point closest to $P$. Pick an arbitrary point on $L$ and call it $Q$. The value of this point doesn't matter. Find $\vec{PQ}$, the vector with its tail at $P$ and its head at $Q$. In order to find the shortest distance from $P$ to $L$ we must first find the component of $\vec{PQ}$ along $\vec{v}$ (from equation of $L$). Then solve the right triangle for the magnitude of $\vec{u}$.
+		$$\magn{PQ}^2= (\frac{\dotp{PQ}{v}}{\magn{PQ}})^2+\magn{u}^2$$
+
+		However, finding a line perpendicular to $L$ and finding a point on $L$ closest to $P$ involve the projection and not just the component. First find the projection of $\vec{PQ}$ onto $\vec{v}$ and then subtract this from $\vec{PQ}$ in order to find $\vec{u}$
+		$$\vec{PQ}-\frac{\dotp{PQ}{v}}{\magn{PQ}^2}\vec{v}=\vec{u}$$
+		Now that we have $\vec{u}$ we can find a line perpendicular to $L$ that passes through $P$.
+		$$L_\perp=P+s\vec{u}$$
+		$s$ is just another parameter. I'm not using $t$ here because of the next part.
+
+		Since we have this we can also find the point on $L$ closest to $P$ by finding the intersection of $L$ and $L_\perp$. This is done by finding the three parametric equations for each line and setting the $x,\ y,\ z$ equations equal. Then find values of $s,\ t$ such that the equations output the same point. This point will be the point on $L$ closest to $P$.
+
+		\subsection{Distance between point and plane}
+
+		This is a similar problems to the previous subsection but it becomes slightly trickier in $\R^3$. In any case, we are still finding a projection. Suppose we are given a point $P$ and a plane $R\coloneqq ax+by+cz=d$ Choose an arbitrary point on the plane and call it $P_0$. Find $\vec{P_0P}$, a vector with tail at $P_0$ and head at $P$. Since we have the normal vector to $R$ as $\vec{n}=<a,b,c>$ we can find the projection of $\vec{P_0P}$ onto $\vec{n}$
+		$$\vec{u}=\frac{\dotp{P_0P}{n}}{\magn{P_0P}^2}\vec{n}$$
+		Depending on what you want to find, there's several things you could do from this point. If you simply wanted the shortest distance from $P$ to $R$ you could find the magnitude of $\vec{u}$. If you want the point on $R$ closest to $P$ you could then define a line $L=P+t\vec{u}$ and then see where it intersects with $R$ in order to find the point closest to $P$.
+
+	\section{\S 13.1 Vector Function}
+
+		A vector valued function is a function (or mapping) $f:\R\rightarrow\R^n$ that takes as input a real number and outputs a vector. The domain of this function is the smallest domain of the functions that make up the vector. That may sound confusing (I can't think of a better way to describe it) so here's an example from class.
+
+		\begin{exmp*}
+			Given a vector function $\vec{r}(t)=<t\sin{t},e^t+t^2,\sqrt{1+t}>$, find its domain\\
+			Let's look at the domains of these functions individually.\\
+			$t\sin{t}$ has domain $\R$\\
+			$e^t+t^2$ has domain $\R$ as well\\
+			$\sqrt{1+t}$ only has real output when $t\geq -1$\\
+			Therefore since $\sqrt{1+t}$ has the most restrictive domain, the domain of $\vec{r}(t)$ is $t\geq -1$
+		\end{exmp*}
+
+		\subsection{Limits and Continuity}
+		$$\Lim{t\rightarrow a}\vec{r}(t)=<\Lim{t\rightarrow a}f(t),\Lim{t\rightarrow a}g(t),\Lim{t\rightarrow a}h(t)>$$
+
+		\begin{exmp*}
+			Compute $\Lim{t\rightarrow 0}\vec{r}(t)$ for $\vec{r}(t)=<\frac{\sin{t}}{t},te^t,\ln{1+t}>$
+
+			$\Lim{t\rightarrow 0}\frac{\sin{t}}{t}=1$
+			$\Lim{t\rightarrow 0}te^t=0$
+			$\Lim{t\rightarrow 0}\ln{1+t}=0$
+			Therefore the limit of $\vec{r}(t)$ is $<1,0,0>$
+		\end{exmp*}
+
+		\subsection{Describing vector function curves}
+
+		A rule frequently used to help visualize a vector function is $(\cos{t})^2+(\sin{t})^2=1$. A vector function in $\R^2$ $<\cos{t},\sin{t}$ is a circle so depending on whatever accompanies these two functions in a vector function in $\R^3$, we can use this knowledge to make visualization easier.
+
+		\begin{exmp*}
+			Describe the space curve generated by $\vec{r}(t)=<2+t,2-2t,5+3t>$\\
+			By rewriting this as $\vec{r}(t)=<3,2,5>+t<1,-2,3>$ we can see that this space curve describes a line through the point (3,2,5).
+		\end{exmp*}
+
+		\begin{exmp*}
+			Describe the space curve generated by $\vec{r}(t)=<\cos{t},\sin{t},t>$\\\\
+			Since the $x$ and $y$ values of this function represent a circle in $\R^2$, part of our work is already done. Without the $z$ coordinate this curve will be a circle that goes around infinitely many times. With the addition of $t$, this space curve will be a helix. To better visualize this, I'd recommend using a graphing calculator in parametric mode to graph $x=\cos{t},\ y=t$ and $x=\sin{t},\ y=t$. This should respectively look like cosine and sine if they were rotated counterclockwise 90 degrees, which ressemble a helix if you were looking at it from the side.
+		\end{exmp*}
+
+		\begin{exmp*}
+			Find a parametrization of a curve that represents the intersection between the cylinder $x^2+y^2=4$ and the plane $y+z=10$\\\\
+			This is an example from class obviously but didn't explain why he "knew" the intersection would be a circular cross-section. It's also possible for it to be a rectangle if the plane were parallel to the height of the cylinder.\\\\
+			Since the intersection will be a sort of cross-section with the cylinder, we already know the $x$ and $y$ functions for the parametrization. Using $(\cos{t})^2+(\sin{t})^2=1$, we can see that this fits in with our cylinder's equation.
+			$$(2\cos{t})^2+(2\sin{t})^2=4$$
+			Therefore $x(t)=2\cos{t}$ and $y(t)=2\sin{t}$. With the equation of the plane we ca solve for $z(t)$
+			$$2\sin{t}+z(t)=10\ \Rightarrow \ z(t)=10-2\sin{t}$$
+			The parametrization of the intersection is $\vec{r}(t)=<2\cos{t},2\sin{t},10-2\sin{t}>$
+		\end{exmp*}
+	\section{\S 12.2 Derivatives and Integrals}
+		\subsection{Derivatives}
+		\begin{def*}\textbf{Derivative}\\
+			$$\frac{d\vec{r}}{dt}=\Lim{h\rightarrow 0}\frac{\vec{r}(t+h)-\vec{r}(t)}{h}$$
+		\end{def*}
+		\begin{def*}\textbf{Unit tangent vector}\\
+			We define $\vec{T}(t)=\frac{\vec{r'}(t)}{\parallel\vec{r'}(t)\parallel}$ to be the unit tangent vector at time $t$
+		\end{def*}
+		\begin{thrm}\textbf{$\vec{r'}(t)$}\\
+			If $\vec{r}(t)=<f(t),g(t),h(t)>$ then $\vec{r'}(t)=<f'(t),g'(t),h'(t)>$
+		\end{thrm}
+		$\vec{r}(t)$ and $\vec{r'}(t)$ (or $\vec{T}(t)$) are always perpendicular. We can use this to find equations of lines tht are tangent to a curve at any given point.
+		\begin{thrm}Let $\vec{u}(t),\ \vec{v}(t)$ be vector valued functions, let $f(t)$ be a real-valued function, and let $c\in\R$.
+			\begin{enumerate}[i)]
+				\item $\frac{d}{dt}[\vec{u}(t)+\vec{v}(t)]=\vec{u'}(t)+\vec{v'}(t)$
+				\item $\frac{d}{dt}\ c\vec{u}(t)=c\ \frac{d}{dt}\vec{u}(t)$
+				\item $\frac{d}{dt}\ f(t)\vec{u}(t)=f'(t)\vec{u}(t)+f(t)\vec{u'}(t)$
+				\item $\frac{d}{dt}\ \vec{u}(t)\cdot\vec{v}(t)=\vec{u'}(t)\cdot\vec{v}(t)+\vec{u}(t)\cdot\vec{v'}(t)$
+				\item $\frac{d}{dt}\ \vec{u}(t)\times\vec{v}(t)=\vec{u'}(t)\times\vec{v}(t)+\vec{u}(t)\times\vec{v'}(t)$
+				\item $\frac{d}{dt} [\vec{u}(f(t))]=\frac{d}{dt}<u_1(f(t)),u_2(f(t)),u_3(f(t))>$
+			\end{enumerate}
+		\end{thrm}
+
+		\subsection{Integrals}
+		The integral of a vector function follows the pattern of the limit and derivative of vector functions.
+		$$\int_a^b\vec{r}(t)\ dt=<\int_a^bf(t)\ dt,\int_a^bg(t)\ dt,\int_a^bh(t)\ dt>$$
+		$$\int_a^b\vec{r}(t)\ dt=<F(b)-F(a),G(b)-G(a),H(b)=H(a)>$$
+\end{document}

@@ -1,0 +1,8 @@
+# LaTeX files
+*.synctex.gz
+*.log
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+*.aux

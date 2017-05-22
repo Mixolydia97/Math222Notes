@@ -1,0 +1,30 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{easycalc3}[2017/5/22 EasyCalc3]
+
+\RequirePackage{amsmath,amsthm,amssymb,mathtools}
+
+\ProcessOptions\relax
+
+%% Traditional LaTeX or TeX follows...
+% ...
+
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newcommand{\sumz}{\sum\limits_{n=0}^{\infty}}
+\newcommand{\sumo}{\sum\limits_{n=1}^{\infty}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\toinfty}{\rightarrow\infty}
+\newcommand{\dotp}[2]{\vec{#1}\cdot\vec{#2}}
+\newcommand{\crossp}[2]{\vec{#1}\times\vec{#2}}
+\newcommand{\magn}[1]{\parallel \vec{#1} \parallel}
+\newtheorem{exmp}{Example}[section]
+\newtheorem*{exmp*}{Example}
+\newtheorem*{def*}{Definition}
+\newtheorem*{thrm}{Theorem}
+\newtheorem*{remark}{Remark}
+
+
+
+% ...
+
+\endinput
