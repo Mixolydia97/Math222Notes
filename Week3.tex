@@ -29,9 +29,43 @@
     \onehalfspacing
     \maketitle
     \tableofcontents
+    \section{\S 13.3 Arc Length + Curvature}
+        \subsection{Arc Length}
+        Given a parametric curve $\vec{r}(t)$ in $\R^3$, what is the distance travelled by the particle between some $t=a$ and $t=b$?
 
+        Suppose we partition this section of the curve into $n$ sections of time. The differences in $t$ between these sections might not be 1 so we write $\Delta t=\frac{b-a}{n}$. In this way $b$ would equal $a+n\Delta t$. We could approximate the distance from $\vec{r}(a)$ to $\vec{r}(b)$ by adding together these the difference between $\vec{r}(a)$ and $\vec{r}(a+\Delta t)$, $\vec{r}(a+\Delta t)$ and $\vec{r}(a+2\Delta t)$, and so on. If we had three sections, the approximation would look something like this:
+        $$\sum_{i=0}^2\sqrt{(x(a+(i+1)\Delta t)-x(a+(i)\Delta t))^2+(y(a+(i+1)\Delta t)-y(a+(i)\Delta t))^2}$$\\
 
+        I'll cut this short, but we can basically turn this into a Riemann sum by having $n$ approach infinity. Then by using the Mean Value Theorem, we can find an actual equation for Arc Length (here denoted by $L$):
+        $$L=\int_a^b \sqrt{(x'(t))^2+(y'(t))^2}\ dt$$
+        The professor has included more notes about how this is derived on MyCourses, so check that out if you're really, really, really interested for some reason.
 
+        For some $\vec{r}(t)=<f(t),g(t),h(t)>$ in $\R^3$, the formula is slightl different. We just need to add the third function.
+        $$L=\int_a^b \sqrt{(f'(t))^2+(g'(t))^2+(h'(t))^2}\ dt$$
+        This is also written as
+        $$L=\int_a^b\parallel \vec{r'}(t)\parallel\ dt$$
 
+        \begin{exmp*}
+            Compute arc length over $0\leq t\leq2\pi$ of the circular helix $\vec{r}(t)=<\cos{t},\sin{t},t>$
 
+            Find $\vec{r'}(t)$ and its length
+            $$\vec{r'}(t)=<-\sin{t},\cos{t},1>$$
+            $$\parallel\vec{r'}(t)\parallel=\sqrt{(\sin(t))^2+(\cos(t))^2+1}=\sqrt{2}$$
+
+            Then integrate this
+            $$\int_0^{2\pi}\sqrt{2}\ dt=2\pi\sqrt{2}-0\sqrt{2}=2\pi\sqrt{2}$$
+        \end{exmp*}
+
+        \subsection{Curvature}
+
+        Suppose we are on some interval of $t$ where $\vec{r}(t)$ is a smooth function and $\vec{r'}(t)\neq 0$. In this setting we can discuss the curvature of the curve defined by $\vec{r}(t)$.
+
+        We think of curvature as the amount that the direction of the curve changes over a small step (the size of this step approaches 0)
+
+        Curvature depends solely on arc length. $<\cos(t),\sin(t)>$ is "drawn" more slowly than $<\cos(4t),\sin(4t)$ but they still have the same curvature because they're both circles with the same radius.
+    \section{\S 13.4 Acceleration Vector}
+    \section{\S 14.1 Multivariable Functions}
+    \section{\S 14.2 Limits and Continuity}
+    \section{\S 14.3 Partial Derivatives}
+    \section{\S 14.4 Tangent planes, linear approximation}
 \end{document}

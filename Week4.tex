@@ -29,7 +29,25 @@
     \onehalfspacing
     \maketitle
     \tableofcontents
+    \section{\S 14.5 Chain Rule}
+        The chain rule in 1-dimension is as follows:
 
+        For an equation $y=f(x(t))$
+        $$\frac{dy}{dt}=\frac{df}{dx}\frac{dx}{dt}$$
+        \begin{exmp*}
+            If $y=(x(t))^2$ and $x(t)=\ln{1+t}$\\
+            $$\frac{dy}{dt}=\frac{dy}{dx}\frac{dx}{dt}=2x\frac{1}{1+t}=\frac{2\ln{1+t}}{1+t}$$
+        \end{exmp*}
+
+        \begin{exmp*}
+            Suppose $f(x,y)=xy+x^2+y$\\
+            $x(t)=\ln{1+t},\ y(t)=e^{t^2}$\\
+            Turn $f(x,y)$ into a function $g(t)$ with only the time parameter.
+            $$g(t)=f(x(t),y(t))=\ln{1+t}e^{t^2}+(\ln{1+t})^2+e^{t^2}$$
+            $$\frac{dg}{dt}=\frac{df}{dt}=\frac{e^{t^2}}{1+t}+2t\ln{1+t}e^{t^2}+\frac{2\ln{1+t}}{1+t}+2te^{t^2}$$
+            Wherever we can, replace the values of $x(t),\ y(t)$ with $x(t),\ y(t)$
+            $$\frac{dg}{dt}=\frac{df}{dt}=\frac{y(t)}{1+t}+2te^{t^2}x(t)+\frac{2}{1+t}+2te^{t^2}$$
+        \end{exmp*}
 
 
 
