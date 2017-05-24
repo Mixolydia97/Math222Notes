@@ -125,7 +125,24 @@
             $$\frac{dz}{dy}=\frac{-F_y}{F_z}=\frac{-(3y^2+6xz)}{3z^2+6xy}\Big|_{1,1,1}=-1$$
         \end{exmp*}
 
+        \subsection{Directional Derivative}
 
+        \begin{def*}
+            The directional derivative of $f(x,y)$ at $(x_0,y_0)$ in the direction of a unit vector $\vec{u}=<a,b>$ is
+            $$D_{\vec{u}}f(x_0,y_0)=\lim_{h\rightarrow 0}\frac{f(x_0+ah,y_0+bh)-f(x_0,y_0)}{h}$$
+        \end{def*}
+        Let $g(h)=f(x+ah, y+bh)$ so that $g(0)=f(x,y)$.
+        $$g'(0)=\lim_{h\rightarrow 0}\frac{g(h)-g(0)}{h}=D_{\vec{u}}f(x,y)$$
+        We can rewrite this using what we know about the chain rule
+        $$g'(h)=\frac{\partial f}{\partial x}\frac{dx}{dh}+\frac{\partial f}{\partial y}\frac{dy}{dh}$$
+        We can say that $x(h)=x_0+ah$ and $y(h)=y_0+bh$. From this we can also say that $\frac{dx}{dh}=a$ and $\frac{dy}{dh}=b$. Substitute these into this equation.
+        $$g'(h)=af_x(x+ah,y+bh)+bf_y(x+ah,y+bh)$$
+        Set $h=0$
+        $$g'(0)=af_x(x,y)+bf_y(x,y)$$
+        Since we had previously that $g'(0)=D_{\vec{u}}f(x,y)$, we can set these equal and get
+        $$D_{\vec{u}}f(x,y)=af_x(x,y)+bf_y(x,y)$$
+        Another common way of writing this is
+        $$D_{\vec{u}}f(x,y)=<a,b>\cdot<f_x(x,y),f_y(x,y)>$$
 
 
     \section{\S 14.7 Maximum and Minimum Values}
