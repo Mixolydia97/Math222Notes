@@ -45,9 +45,21 @@
             Turn $f(x,y)$ into a function $g(t)$ with only the time parameter.
             $$g(t)=f(x(t),y(t))=\ln{1+t}e^{t^2}+(\ln{1+t})^2+e^{t^2}$$
             $$\frac{dg}{dt}=\frac{df}{dt}=\frac{e^{t^2}}{1+t}+2t\ln{1+t}e^{t^2}+\frac{2\ln{1+t}}{1+t}+2te^{t^2}$$
-            Wherever we can, replace the values of $x(t),\ y(t)$ with $x(t),\ y(t)$
-            $$\frac{dg}{dt}=\frac{df}{dt}=\frac{y(t)}{1+t}+2te^{t^2}x(t)+\frac{2}{1+t}+2te^{t^2}$$
+            Wherever we can, replace the values of $x(t),\ y(t)$ with $x(t),\ y(t)$.
+            \begin{align*}
+                \frac{dg}{dt}=\frac{df}{dt}&=\frac{y(t)}{1+t}+2te^{t^2}x(t)+\frac{2}{1+t}+2te^{t^2}\\
+                &=x'(t)y(t)+y'(t)x(t)+2x'(t)x(t)+y'(t)\\
+                &=x'(t)(y(t)+2x(t))+y'(t)(x(t)+1)\\
+                &=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}
+            \end{align*}
+            In the second to last line, we use the fact that differentiating $f$ with respect to $x$ gives $y+2x$ and doing the same for $y$ gives $x+1$.
         \end{exmp*}
+
+        There are two possible cases for the chain rule. Suppose in both cases we have $z=f(x,y)$. In the first case we have $x=g(t)$ and $y=h(t)$. In this case $z$ is a differentiable function of $t$.
+        $$\frac{dz}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}$$
+        In the second case, $x=g(s,t)$ and $y=h(s,t)$. Then $z$ is a differentiable function of $s$ and $t$.
+        $$\frac{dz}{ds}=\frac{\partial f}{\partial x}\frac{dx}{ds}+\frac{\partial f}{\partial y}\frac{dy}{ds}$$
+        $$\frac{dz}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}$$
 
 
 
