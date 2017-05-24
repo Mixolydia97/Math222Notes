@@ -57,11 +57,40 @@
 
         There are two possible cases for the chain rule. Suppose in both cases we have $z=f(x,y)$. In the first case we have $x=g(t)$ and $y=h(t)$. In this case $z$ is a differentiable function of $t$.
         $$\frac{dz}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}$$
-        In the second case, $x=g(s,t)$ and $y=h(s,t)$. Then $z$ is a differentiable function of $s$ and $t$.
+        In the second case, $x=g(s,t)$ and $y=h(s,t)$. Then $z$ is a differentiable function of both $s$ and $t$.
         $$\frac{dz}{ds}=\frac{\partial f}{\partial x}\frac{dx}{ds}+\frac{\partial f}{\partial y}\frac{dy}{ds}$$
         $$\frac{dz}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}$$
 
+        \begin{exmp*}
+            $z=e^x\cos(x+y),\ x=s^2t,\ y=st^2$. Find $\frac{dz}{ds}$ and $\frac{dz}{dt}$.
+            $$\frac{\partial z}{\partial x}=e^x(\cos(x+y)-\sin(x+y))$$
+            $$\frac{\partial z}{\partial y}=-e^x\sin(x+y)$$
+            Then we need $\frac{dx}{ds},\ \frac{dx}{dt},\ \frac{dy}{ds},\ \frac{dy}{dt}$
+            \begin{center}
+                $$\frac{dx}{ds}=2st,\ \frac{dx}{dt}=s^2$$
+                $$\frac{dy}{ds}=t^2,\ \frac{dy}{dt}=2st$$
+            \end{center}
+            So now we can find the general equations for $\frac{dz}{ds}$ and $\frac{dz}{dt}$.
+            $$\frac{dz}{ds}=(e^x)(\cos(x+y)-\sin(x+y))(2st)+(-e^x)(\sin(x+y))(t^2)$$
+            $$\frac{dz}{dt}=(e^x)(\cos(x+y)-\sin(x+y))(s^2)+(-e^x)(\sin(x+y))(2st)$$
+        \end{exmp*}
 
+        \begin{exmp*}
+            If $g(s,t)=f(s^2-t^2,t^2-s^2)$ and $f$ is differentiable, show that $t\frac{dg}{ds}+s\frac{dg}{dt}=0$.\\\\
+            Based on $f$, $x(s,t)=s^2-t^2$ and $y(s,t)=t^2-s^2$. Therefore we can write that $g(s,t)=f(x(s,t),y(s,t))$. We need to find $\frac{dg}{dt}$ and $\frac{dg}{ds}$ and to do this we need need to differentiate $x(s,t),\ y(s,t)$ by both $s$ and $t$.
+            $$\frac{dg}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}=\frac{\partial f}{\partial x}(-2t)+\frac{\partial f}{\partial y}(2t)$$
+            $$\frac{dg}{ds}=\frac{\partial f}{\partial x}\frac{dx}{ds}+\frac{\partial f}{\partial y}\frac{dy}{ds}=\frac{\partial f}{\partial x}(2s)+\frac{\partial f}{\partial y}(-2s)$$
+            If we multiply the first equation all by $t$ and the second all by $s$, we get
+            $$t\frac{dg}{ds}=-2st\frac{\partial f}{\partial x}+2st\frac{\partial f}{\partial y}$$
+            $$s\frac{dg}{dt}=2st\frac{\partial f}{\partial x}-2st\frac{\partial f}{\partial y}$$
+            Doing linear combination gives
+            $$t\frac{dg}{ds}+s\frac{dg}{dt}=0$$
+        \end{exmp*}
 
+        \subsection{Chain rule and implicit functions}
 
+        In 1 dimension, if we had an implicit function $F(x,y)=0$ we would do the following to differentiate it.
+        $$\frac{dF}{dx}(x,y)=0\ \Rightarrow\ \frac{dF}{dx}\frac{dx}{dx}+\frac{dF}{dy}\frac{dy}{dx}=0$$
+        $\frac{dx}{dx}$ always equals 1, so we get an equation for $\frac{dy}{dx}$.
+        $$\frac{dy}{dx}=\frac{\frac{-dF}{dx}}{\frac{dF}{dy}}$$
 \end{document}
