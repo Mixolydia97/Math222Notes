@@ -93,4 +93,40 @@
         $$\frac{dF}{dx}(x,y)=0\ \Rightarrow\ \frac{dF}{dx}\frac{dx}{dx}+\frac{dF}{dy}\frac{dy}{dx}=0$$
         $\frac{dx}{dx}$ always equals 1, so we get an equation for $\frac{dy}{dx}$.
         $$\frac{dy}{dx}=\frac{\frac{-dF}{dx}}{\frac{dF}{dy}}$$
+        Provided that $\frac{dF}{dy}$ doesn't equal 0.
+
+        We can apply this idea to an implicit function like $F(x,y,x)=0$ as well
+        $$\frac{dF}{dx}=\frac{dF}{dx}\frac{dx}{dx}+\frac{dF}{dy}\frac{dy}{dx}+\frac{dF}{dz}\frac{dz}{dx}=0$$
+        Like before, $\frac{dx}{dx}$ is 1. In addition, because $y$ is no longer a function of $x$ we can say that $\frac{dy}{dx}=0$. $y$ doesn't depend on $x$ at all. However, $z$ does depend on $x$ so that stays put.
+        $$0=\frac{dF}{dx}+\frac{dF}{dz}\frac{dz}{dx}$$
+        $$\frac{dz}{dx}=\frac{\frac{-dF}{dx}}{\frac{dF}{dz}}$$
+
+        \subsection{Implicit function theorem}
+
+        Suppose a function $F(x,y,z)$ is defined on a sphere around a point $(a,b,c)\in\R^3$ satisfying $F(a,b,c)=0$.
+
+        If $F_x,\ F_y,\ F_z$ are continuous and $\frac{dF}{dz}$ evaluated at $(a,b,c)$ does not equal 0, then in a neighborhood of $(a,b,c)$ we have that the equation $F(x,y,z)=0$ defines $z$ as a function of $x,\ y$ near $(a,b,c)$ in this neighborhood. In addition, this function is differentiable in this area and its partial derivatives $\frac{dz}{dx}=f_x(x,y),\ \frac{dz}{dy}=f_y(x,)$ are given by
+        $$\frac{dz}{dx}=\frac{\frac{-dF}{dx}}{\frac{dF}{dz}}$$
+        $$\frac{dz}{dy}=\frac{\frac{-dF}{dy}}{\frac{dF}{dz}}$$
+
+        This theorem is really a test that we use to determine if we can get a tangent plane at a given point on the function. If the slope is $\infty$ then our equations for $\frac{dz}{dx},\ \frac{dz}{dy}$ won't work because $\frac{dF}{dz}$ will be zero.
+
+        In clas we used the example of a simple circle $x^2+y^2=1$, a circle of radius 1 centered at the origin. If we choose $(a,b)$ to be somewhere in the middle of the top-right quadrant, in this neighborhood of $(a,b)$ we can talk about the curve as a function. There is no point in this neighborhood where the slope is $\infty$. However, if we choose $(a,b)$ to be $(1,0)$ or $(-1,0)$ we have a situation where the curve is not a function. We can tell this by looking at the graph of the circle but for more confusing curves we need the Implicit Function Theorem. If $f(a,b)$ has a slope of $\infty$ then since we're going to be dealing with the neighborhood of $(a,b)$, there will be points in this neighborhood that fail the vertical line test. Then we can't find derivatives and tangent planes in this area since it's not a function here.
+
+        \begin{exmp*}
+            Let $F(x,y,z)=0$ for $F(x,y,z)=x^3+y^3+z^3+6zyz-9$. Show that around $(1,1,1)$ we can define $z$ as a function of $x,\ y$. Find the values of $\frac{dz}{dy}$ and $\frac{dz}{dx}$ at $(1,1,1)$.
+
+            First check if the point is on the surface. $1+1+1+6-9=0$, so it's on the surface. Next we need to check that $\frac{dF}{dz}$ at the point isn't 0.
+            $$\frac{dF}{dz}=3z^2+6xy$$
+            Evaluating this is the point gives 9, which isn't 0. Since $F$ is a polynomial we can also say that $F_x,F_y,F_z$ are continuous .
+
+            By the Implicit Function Theorem, near $(1,1,1)$ $z$ is a function of $x,\ y$. Now we need to find $\frac{dz}{dy}$ and $\frac{dz}{dx}$.
+            $$\frac{dz}{dx}=\frac{-F_x}{F_z}=\frac{-(3x^2+6yz)}{3z^2+6xy}\Big|_{1,1,1}=-1$$
+            $$\frac{dz}{dy}=\frac{-F_y}{F_z}=\frac{-(3y^2+6xz)}{3z^2+6xy}\Big|_{1,1,1}=-1$$
+        \end{exmp*}
+
+
+
+
+    \section{\S 14.7 Maximum and Minimum Values}
 \end{document}
