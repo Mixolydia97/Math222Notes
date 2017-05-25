@@ -157,8 +157,29 @@
             This is the directional derivative at $(1,1)$ in direction $<1,2>$.
         \end{exmp*}
 
+        \subsection{The Gradient Vector}
+
         A question that naturally follows from this is for what $\vec{u}=<a,b>$ do we get the largest directional derivative? If we want to maximize $<a,b>\cdot<f_x(x,y),f_y(x,y)>$ we should look at an identity we learned earlier in the course.
         $$<a,b>\cdot<f_x(x,y),f_y(x,y)>=\parallel<a,b>\parallel\ \parallel<f_x,f_y>\parallel\cos(\theta)$$
         We already know that the length of $<a,b>$ is 1. $<f_x,f_y>$ has a fixed sized. $\cos(\theta)$ is largest at $\theta=0$. Therefore the directional derivative is largest when $<a,b>$ is parallel to $f_x,f_y>$ (when the angle between them is 0). Therefore $D_{\vec{u}}f$ is maximized when $<a,b>=\frac{<f_x,f_y>}{\parallel<f_x,f_y>\parallel}$.
+
+        We call this vector in the direction of the maximum change if you start at some point $x_0,y_0$ the gradient vector:
+        $$\nabla f(x_0,y_0)=<f_x(x_0,y_0),f_y(x_0,y_0)>$$
+        We don't necessarily need this to be a unit vector, so we won't divide the vector by its length here like it would be in the directional derivative.
+
+        \begin{exmp*}
+            Find the direction of the maximum derivative for $f(x,y)=x^2+2y^2+y$ and find the value of that max derivative.\\\\
+            The direction of the max derivative will be the gradient vector. Find $f_x,\ f_y$ and plug them into our gradient vector equation.
+            $$\nabla f=<2x,4y+1>\ \Rightarrow\ \nabla f(1,1)=<2,5>$$
+            This vector gives the direction (we don't really care that it's not a unit vector). However, to find the max value of the directional derivative we'll need to do:
+            $$D_{\vec{u}}f(x,y)=<a,b>\cdot<f_x(x,y),f_y(x,y)>$$
+            In this case, $<a,b>$ is $<\frac{2}{\sqrt{29}},\frac{5}{\sqrt{29}}>$ since we want the directional derivative in this direction. We already know that $<f_x,f_y>$ is $<2,5>$ because we already calculated these values.
+            $$D_{\nabla f}f(1,1)=\frac{<2,5>}{\parallel <2,5>\parallel}\cdot<2,5>=\frac{\parallel<2,5>\parallel^2}{\parallel<2,5>\parallel}=\sqrt{29}$$
+        \end{exmp*}
+        This gives us valuable information. The maximum directional derivative (directional derivative calculated at $\nabla f$) will be
+        $$D_{\nabla f}f=\frac{<f_x,f_y>}{\parallel <f_x,f_y>\parallel}\cdot<f_x,f_y>=\frac{\parallel<f_x,f_y>\parallel^2}{\parallel<f_x,f_y>\parallel}=\parallel<f_x,f_y>\parallel$$
+        We can do this because of the rule we learned early in the course that the dot product of a vector and itself equals the magnitude squared of that vector.
     \section{\S 14.7 Maximum and Minimum Values}
+    \section{\S 14.8 Lagrange Multipliers}
+    %I'm going to keep the beginning of chapter 15 out of this document to keep things organized
 \end{document}
