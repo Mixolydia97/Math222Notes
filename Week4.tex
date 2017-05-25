@@ -143,7 +143,22 @@
         $$D_{\vec{u}}f(x,y)=af_x(x,y)+bf_y(x,y)$$
         Another common way of writing this is
         $$D_{\vec{u}}f(x,y)=<a,b>\cdot<f_x(x,y),f_y(x,y)>$$
+        $D_{\vec{u}}f$ is the rate of change of $f$ in direction $\vec{u}$. $\vec{u}$ must be a unit vector because we use its coordinates in our equation. If $\vec{u}$ isn't a unit vector, we won't get the correct answer.
 
+        \begin{exmp*}
+            Compute the directional derivative of $f(x,y)=x^2+2y^2+y$ at $(1,1)$ in direction $<1,2>$\\\\
+            To find $a,\ b$ we need to divide the coordinates of $\vec{u}$ by the vector's length.
+            $$a=\frac{1}{\magn{u}}=\frac{\sqrt{5}}{5}$$
+            $$b=\frac{2}{\magn{u}}=\frac{2\sqrt{5}}{5}$$
+            Now if we just find $f_x$ and $f_y$, we can find the directional derivative.
+            $$D_{\vec{u}}=<\frac{\sqrt{5}}{5},\frac{2\sqrt{5}}{5}>\cdot<2x,4y+1>$$
+            Plug in the point we were given.
+            $$<\frac{\sqrt{5}}{5},\frac{2\sqrt{5}}{5}>\cdot<2,5>=\frac{12\sqrt{5}}{5}$$
+            This is the directional derivative at $(1,1)$ in direction $<1,2>$.
+        \end{exmp*}
 
+        A question that naturally follows from this is for what $\vec{u}=<a,b>$ do we get the largest directional derivative? If we want to maximize $<a,b>\cdot<f_x(x,y),f_y(x,y)>$ we should look at an identity we learned earlier in the course.
+        $$<a,b>\cdot<f_x(x,y),f_y(x,y)>=\parallel<a,b>\parallel\ \parallel<f_x,f_y>\parallel\cos(\theta)$$
+        We already know that the length of $<a,b>$ is 1. $<f_x,f_y>$ has a fixed sized. $\cos(\theta)$ is largest at $\theta=0$. Therefore the directional derivative is largest when $<a,b>$ is parallel to $f_x,f_y>$ (when the angle between them is 0). Therefore $D_{\vec{u}}f$ is maximized when $<a,b>=\frac{<f_x,f_y>}{\parallel<f_x,f_y>\parallel}$.
     \section{\S 14.7 Maximum and Minimum Values}
 \end{document}
