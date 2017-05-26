@@ -184,8 +184,55 @@
         $$D_{\vec{u}}f=<u_1,u_2,u_3>\cdot\nabla f(x,y,z)$$
         \begin{exmp*}
             Suppose the temperature at a point $(x,y,z)$ in space is given by $T(x,y,z)=\frac{80}{1+x^2+2y^2+3z^2}$ in degrees Celsius. In what direction does the temperature increase fastest when starting from $(1,1,-2)$? What is the rate of increase?\\\\
+            $\nabla T=<T_x,T_y,T_z>$, so we need $T_x,T_y,T_z$
+            $$T_x=\frac{-160x}{(1+x^2+2y^2+3z^2)^2}$$
+            $$T_y=\frac{-320y}{(1+x^2+2y^2+3z^2)^2}$$
+            $$T_z=\frac{-480y}{(1+x^2+2y^2+3z^2)^2}$$
+            We can factor out a lot of stuff from these, so we end up with the gradient vector
+            $$\nabla T=\frac{-160x}{(1+x^2+2y^2+3z^2)^2}<-x,-2y,-3z>$$
+            Now plug in $(1,1,-2)$
+            $$\nabla T(1,1,-2)=\frac{5}{8}<-1,-2,6>$$
+            This is the direction for the greatest change. Now let's find the actual rate of that change by using what we learned previously, that the rate of change in the direction of the gradient vector is the magnitude of the gradient vector.
+            $$\parallel \nabla T \parallel=\frac{5}{8}\sqrt{1+4+36}=\frac{5}{8}\sqrt{41}$$
+            This is the greatest rate of change possible from $(1,1-2)$ in degrees Celsius per meter.
         \end{exmp*}
+
+        \subsection{Significance of gradient vector}
+
+        Suppose we have a level curve of $z=f(x,y)$ that is $k=f(x,y),\ k\in\R$. If we parametrize $z=f(x,y)$ we can find $x$ and $y$ as a function of $t$, $x(t),\ y(t)$. Then we can rewrite our level curve as $k=f(x(t),y(t))$. Suppose we then took the derivative of this, using the chain rule.
+        $$\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}=0$$
+        Rewriting this as a dot product gives
+        $$<\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}>\cdot<x'(t),y'(t)>=0$$
+        $$\nabla f\cdot<x'(t),y'(t)>=0$$
+        This implies that the gradient vector is perpendicular to $\vec{r'}(t)$ (which equals $<x'(t),y'(t)>$ and represents the tangent to the level curve). Therefore the gradient vector at some point on a level curve is perpendicular to the tangent vector along the level curve at that point.
+
+        We obtain the same result when dealing with level surfaces. Let $\vec{r}(t)$ be a curve in space with $\vec{r}(t)=<x(t),y(t),z(t)>$ and let $F(x(t),y(t),z(t))=k$ be a level curve of $\vec{r}(t)$. Let's do the same thing we didn last time and differentiate the level curve.
+        $$\frac{dF}{dt}=\frac{\partial F}{\partial x}x'(t)+\frac{\partial F}{\partial f}y'(t)+\frac{\partial F}{\partial z}z'(t)=0$$
+        We can turn this into a dot product as well.
+        $$\nabla F\cdot <x'(t),y'(t),z'(t)>=0$$
+        $$\nabla F\cdot \vec{r'}(t)=0$$
+        Therefore the gradient vector is perpendicular to the tangent of the level surface. The gradient vector is normal to the tangent plane at the point where the gradient vector is evaluated.
+
+        So at some point $p(x_0,y_0,z_0)$ we have that the tangent plane to $p$ is
+        $$F_x(x_0,y_0,z_0)(x-x_0)+F_y(x_0,y_0,z_0)(y-y_0)+F_z(x_0,y_0,z_0)(z-z_0)=0$$
+        Therefore the normal to this plane is $\nabla F=<F_x,F_y,F_z>$.
+
+        Suppose we have a surface that can be written in the form $z=f(x,y)$. We can rewrite the equation as $f(x,y)-z=0$, so that it is technically a function $F(x,y,z)$. Then we can create an equation for the tangent plane at any point $(x_0,y_0,z_0)$ by differentiating the equation.
+        $$f_x(x-x_0)+f_y(y-y_0)-(z-z_0)=0$$
+        $z_0$ is equals to $f(x_0,y_0)$.
+        $$z=f_x(x-x_0)+f_y(y-y_0)+f(x_0,y_0)$$
     \section{\S 14.7 Maximum and Minimum Values}
+        Given a function $z=f(x,y)$ we would like to find local maximum and minimum of $f(x,y)$ on its domain.
+
+        \begin{def*}
+            A function of two variables has a local max at $(a,b)$ if $f(x,y)\leq f(a,b)$ for all $(x,y)$ near $(a,b)$. $f(a,b)$ is the local maximum value. A function of two variables has a local min at $(a,b)$ if $f(x,y)\geq f(a,b)$ for all $(x,y)$ near $(a,b)$. $f(a,b)$ is the local minimum value.
+        \end{def*}
+        \begin{thrm}
+            If $f$ has a local max/min at point $(a,b)$ and $f_x(a,b),\ f_y(a,b)$ both exist, then $f_x(a,b)=f_y(a,b)=0$. This implies that $\nabla f(a,b)=0$ and that the tangent plane is horizontal to the x-y plane.
+        \end{thrm}
+        \begin{def*}
+            A point $(a,b)$ is called a critical point (or stationary point) of $f$ if $f_x(a,b)=f_y(a,b)=0$.
+        \end{def*}
     \section{\S 14.8 Lagrange Multipliers}
     %I'm going to keep the beginning of chapter 15 out of this document to keep things organized
 \end{document}
