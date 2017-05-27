@@ -143,8 +143,62 @@
             $f'(x)=2x$ and $f''(x)=2$. Therefore $K(x)$ is
             $$K(x)=\frac{2}{(1+4x^2)^{3/2}}$$
         \end{exmp*}
+
+        \subsection{Normal and Binormal Vectors}
+
+        Earlier we learned that $\vec{T}(t)\cdot\vec{T'}(t)=0$, which implies that the two vectors are perpendicular.
+
+        Let $\vec{N}(t)=\frac{\vec{T'}(t)}{\parallel\vec{T'}(t)\parallel}$. We call this the "unit outward normal". $N(t)$ indicates the direction in which the curve given by $\vec{r}(t)$ is turning.
+
+        In addition, let $\vec{B}(t)=\vec{T}(t)\times\vec{N}(t)$. We call this the binormal vector. Since $\vec{B}(t)$ is orthogonal to both $\vec{T}(t)$ and $\vec{N}(t)$ and these vectors are in the same plane, $\vec{B}(t)$ comes "out" of the page and is orthogonal to that plane.
+
+        Vectors $B$ and $N$ form the normal plane to curve $C$ at point $P$ where $t=a$. The normal plane contains all vectors that are perpendicular to $T$.
+        Vectors $T$ and $N$ form the osculating plane to curve $C$ at point $P$. The osculating plane contains all vectors that are perpendicular to $B$.
+
+        \begin{exmp*}Find the equation for the normal plane at $t=\frac{\pi}{2}$ for $\vec{r}(t)=<\cos(t),\sin(t),t^2>$
+
+            $$\vec{T}=\frac{r'}{\magn{r'}}=\frac{<-\sin(t),\cos(t),2t>}{\sqrt{1+4t^2}}$$
+            $$\vec{T}(\frac{\pi}{2})=\frac{<-1,0,\pi>}{\sqrt{1+\pi^2}}$$
+            Since $\vec{T}$ is the normal to our plane, we can find the equation of this plane using $\vec{n}\cdot(\vec{r}-\vec{r_0})=0$.
+            $$\frac{1}{\sqrt{1+\pi^2}}<-1,0,\pi>\cdot((x,y,z)-(0,1,\frac{\pi^2}{4}))=0$$
+            $$\frac{-1}{\sqrt{1+\pi^2}}(x)+\frac{\pi}{\sqrt{1+\pi^2}}(z-\frac{\pi^2}{4})=4$$
+            This is the equation of the normal plane to the curve at $t=\frac{\pi}{2}$.
+        \end{exmp*}
     \section{\S 13.4 Acceleration Vector}
+        If $\vec{r}(t)$ denotes position, $\vec{r'}(t)=\vec{v}(t)$ denotes the velocity vector. Also, $\vec{r''}(t)=\vec{a}(t)$ denotes the acceleration vector.
+
+        The magnitude of the velocity vector is speed, and it is written as $\nu(t)$
+
+        Since $\vec{a}(t)=\vec{v}(t)$, then
+        $$\int_{t_0}^t\vec{a}(\tau)\ d\tau=\int_{t_0}^t\vec{v'}(\tau)\ d\tau=\vec{v}(t)-\vec{v}(t_0)$$
+        $$\vec{v}(t)=\vec{v}(t_0)+\int_{t_0}^t\vec{a}(\tau)\ d\tau$$
+        If we can integrate $\vec{a}(t)$ and we have the initial velocity, we can find $\vec{v}(t)$
+
+        \subsection{Tangential and normal components of acceleration}
+
+        It is often useful to be able to break up the acceleration vector into its components. We'll start with the definition of $\vec{T}(t)$.
+        $$\vec{T}=\frac{\vec{r'}}{\magn{r'}}=\frac{\vec{v}}{\magn{v}}=\frac{\vec{v}}{\nu}$$
+        From here we can see that
+        $$\vec{v}=\nu\vec{T}$$
+        If we differentiate both sides of this with respect to $t$, we get that
+        $$\vec{a}=\vec{v'}=\nu'\vec{T}+\nu\vec{T'}$$
+        Using the equation for curvature and replacing $\magn{r'}$ with $\nu$, we can solve for $\magn{T'}$ and get $\magn{T'}=K\nu$. We can substitute this into the equation for $\vec{N}$ and see that
+        $$\vec{N}=\frac{\vec{T'}}{\magn{T'}}$$
+        $$\vec{T'}=\vec{N}\magn{T'}$$
+        Substituting this into the equation we were originally working on gives
+        $$\vec{a}=\nu'\vec{T}+K\nu\vec{N}$$
+        We are able to write $\vec{a}$ as a combintion of a scalar multiple of the unit tangent and a scalar multiple of the unit normal. When talking about the components of the acceleration vector, we call the component in the direction of $\vec{T}$ $a_T$, which equals $\nu'$. The component in the direction of $\vec{N}$ is called $a_N$ and it equals $K\nu^2$.
+
+        One interesting thing that this information implies is that the acceleration vector will always be in the osculating plane, since $\vec{B}$ is not one of the components of $\vec{a}$.
+
+        For convenience sake, since we'll often be computing $\vec{r},\ \vec{r'},\ \vec{r''}$ it would be nice to have equations for these components in terms of these vectors. The book goes into more deal why they do what they do to derive these equations, but here they are:
+        $$a_T=\frac{\vec{r'}(t)\cdot\vec{r''}(t)}{\parallel\vec{r'}(t)\parallel}$$
+        $$a_N=\frac{\parallel\vec{r'}(t)\times\vec{r''}(t)\parallel}{\parallel\vec{r'}(t)\parallel}$$
     \section{\S 14.1 Multivariable Functions}
+        \begin{def*}
+            A function of two variables is a rule that assigns to each ordered pair $(x,y)$ in a set $D$ the unqiue real number $f(x,y)$. We write that $z=f(x,y)$
+        \end{def*}
+        The domain of $f(x,y)$ is the set of all $x,y)\in\R^2$ where $f(x,y)$ is a well-defined real number. This means that $f(x,y)$ cannot output nothing nor can it output more than one value.
     \section{\S 14.2 Limits and Continuity}
     \section{\S 14.3 Partial Derivatives}
     \section{\S 14.4 Tangent planes, linear approximation}
