@@ -197,20 +197,20 @@
 		\end{exmp*}
 	\section{\S 11.6 Absolute Convergence}
 		\begin{def*}
-			A series $\sumo a_n$ is called absolutely convergent if $\sumo\left|a_n\right|$ is convergent.
+			A series $\sumo a_n$ is called absolutely convergent if $\sumo\lvert a_n\rvert$ is convergent.
 		\end{def*}
 		\begin{def*}
-			A series $\sumo a_n$ is called conditionally convergent if $\sumo\left|a_n\right|$ is divergent but $\sumo a_n$ is convergent.
+			A series $\sumo a_n$ is called conditionally convergent if $\sumo\lvert a_n\rvert$ is divergent but $\sumo a_n$ is convergent.
 		\end{def*}
 		\begin{exmp*}
 			Determine if $\sumo \frac{sin(n)}{n^2}$ is convergent or divergent\\\\
 			This function isn't alternating because its period is $2\pi$. It's also not positive, so we can't use our other tests. We need to test for absolute convergence with the absolute value of $b_n$.\\
-			$\left|sin(n)\right|\leq 1\Rightarrow \left|\frac{sin(n)}{n^2}\right|\leq \frac{1}{n^2}$\\
+			$\lvert \sin(n)\rvert\leq 1\Rightarrow \lvert\frac{sin(n)}{n^2}\rvert\leq \frac{1}{n^2}$\\
 			This is a convergent p-series, therefore the series is absolutely convergent.
 		\end{exmp*}
 	\subsection{Ratio and Root Tests}
 		\textbf{Ratio Test}
-		For the limit $\Lim{n\toinfty}\left|\frac{a_{n+1}}{a_n}\right|=L$:
+		For the limit $\Lim{n\toinfty}\lvert\frac{a_{n+1}}{a_n}\rvert=L$:
 		\begin{enumerate}[i)]
 			\item if $L<1$, then $\sumo a_n$ is absolutely convergent
 			\item if $L>1$, then $\sumo a_n$ is divergent
@@ -220,10 +220,10 @@
 		\begin{proof}
 			Proof of part i:\\
 			Suppose $\Lim{n\toinfty} \lvert \frac{a_{n+1}}{a_n} \rvert=L<1$, so that $\exists$ numbers $k,r$ such that
-			$$\left|\frac{a_{n+1}}{a_n}\right|<r<1\ \forall\ n\geq k$$
-			$$\Rightarrow \left|a_{n+1}\right|<r\left|a_n\right|$$
-			$$\Rightarrow \left|a_{n+2}\right|<r\left|a_{n+1}\right|<r^2\left|a_n\right|$$
-			$$\Rightarrow \sum\left|a_{n+k}\right|\leq\sum r^n\left|{a_k}\right|$$
+			$$\lvert\frac{a_{n+1}}{a_n}\rvert<r<1\ \forall\ n\geq k$$
+			$$\Rightarrow \lvert a_{n+1}\rvert<r\lvert a_n\rvert$$
+			$$\Rightarrow \lvert a_{n+2}\rvert<r\lvert a_{n+1}\rvert<r^2\lvert a_n\rvert$$
+			$$\Rightarrow \sum\lvert a_{n+k}\rvert\leq\sum r^n\lvert{a_k}\rvert$$
 		\end{proof}
 		\textbf{Root Test}
 		For the limit $\Lim{n\toinfty}\sqrt[n]{\lvert a_n\rvert}=L$:

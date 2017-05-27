@@ -62,7 +62,87 @@
 
         We think of curvature as the amount that the direction of the curve changes over a small step (the size of this step approaches 0)
 
-        Curvature depends solely on arc length. $<\cos(t),\sin(t)>$ is "drawn" more slowly than $<\cos(4t),\sin(4t)$ but they still have the same curvature because they're both circles with the same radius.
+        Curvature depends solely on arc length. $<\cos(t),\sin(t)>$ is "drawn" more slowly than $<\cos(4t),\sin(4t)$ but they still have the same curvature because they're both circles with the same radius. We can define curvature as the rate of change of the unit tangent vector with respect to arc length, which would be written as this (where $K(t)$ is curvature at time $t$):
+        \begin{align*}
+            K(t)&=\parallel\frac{d\vec{T}}{ds}\parallel\\
+            &=\parallel\frac{d\vec{T}}{dt}\frac{dt}{ds}\parallel\\
+            &=\parallel\frac{d\vec{T}}{dt}\frac{1}{\parallel\vec{r'}(t)\parallel}\parallel\\
+        \end{align*}
+        In the last line we were able to replace $\frac{dt}{ds}$ with $\frac{1}{\parallel\vec{r'}(t)\parallel}$ because the rate in change of $s$ (arc length) with respect to time $t$ is $\parallel\vec{r'}(t)\parallel$ based on our equations for arc length. We just need to invert this to get $\frac{1}{\parallel\vec{r'}(t)\parallel}$.
+
+        By simplifying a bit more ($\frac{d\vec{T}}{dt}=\vec{T'}(t)$), we can write the equation for curvature at time $t$ as
+        $$K(t)=\frac{\parallel\vec{T'}(t)\parallel}{\parallel\vec{r'}(t)\parallel}$$
+
+        Through a very long proof we also proved that there is an alternate equations for the curvature that may be easier to use in some cases.
+        $$K(t)=\frac{\parallel\vec{r'}(t)\times\vec{r''}(t)\parallel}{\parallel\vec{r'}(t)\parallel^3}$$
+        I will show the proof here (the book's much shorter version) but feel free to skip over this.
+
+        \begin{proof}
+            $K=\frac{\parallel\vec{r'}(t)\times\vec{r''}(t)\parallel}{\parallel\vec{r'}(t)\parallel^3}$
+
+            Since $\vec{T}=\frac{\vec{r}}{\parallel\vec{r'}\parallel}$ and $\parallel\vec{r'}=\frac{ds}{dt}$, we can write that
+            $$\vec{r'}=\parallel\vec{r'}\parallel\vec{T}=\frac{ds}{dt}\vec{T}$$
+            Using the product rule we can find that
+            $$\vec{r''}=\frac{d^2s}{dt^2}\vec{T}+\frac{ds}{dt}\vec{T'}$$
+            Since the equation we wish to achieve has $\vec{r'}\times\vec{r''}$ in it, let's try to see what happens when we take the cross product.
+            $$\vec{r'}\times\vec{r''}=\frac{ds}{dt}\vec{T}\times\frac{d^2s}{dt^2}\vec{T}+\frac{ds}{dt}\vec{T}\times\frac{ds}{dt}\vec{T'}$$
+            We know that $\vec{T}\times\vec{T}$ will be 0.
+            $$\vec{r'}\times\vec{r''}=(\frac{ds}{dt})^2(\vec{T}\times\vec{T'})$$
+            Next we will take the magnitude of both sides but we can also simplifying the cross product. Since $\parallel \crossp{a}{b}\parallel=\magn{a}\magn{b}\sin{\theta}$ and $\vec{T}$ is perpendicular to $\vec{T'}$, $\theta=\frac{\pi}{2}$. $\sin(\frac{\pi}{2})=1$. Therefore the cross product can be rewritten.
+            $$\parallel\vec{r'}\times\vec{r''}\parallel=(\frac{ds}{dt})^2\magn{T}\magn{T'}$$
+            $\vec{T}$ is defined to be a unit vector, so its magnitude is 1.
+            $$\parallel\vec{r'}\times\vec{r''}\parallel=(\frac{ds}{dt})^2\magn{T'}$$
+            Solving for $\magn{T'}$ gives
+            $$\magn{T'}=\frac{\parallel\vec{r'}\times\vec{r''}\parallel}{(ds/dt)^2}=\frac{\parallel\vec{r'}\times\vec{r''}\parallel}{\magn{r'}^2}$$
+            Finally, if we divide all of this by $\magn{r'}$ in order to get the equation for curvature on one side $\frac{\magn{T'}}{\magn{r'}}$, we can see that our theorem is true.
+            $$K(t)=\frac{\magn{T'}}{\magn{r'}}=\frac{\parallel\vec{r'}\times\vec{r''}\parallel}{\magn{r'}^3}$$
+            So there are two equivalent ways of finding an equation for curvature.
+        \end{proof}
+        \begin{exmp*}
+            Compute the curvature of $\vec{r}(t)=<t\cos(t),t\sin(t),t>$ at $t=\frac{\pi}{2}$
+
+            We need $\vec{r'}$, $\vec{r''}$, and $\magn{r'}$
+            \begin{align*}
+                \vec{r'}(t)&=<-t\sin(t)+\cos(t),t\cos(t)+\sin(t),t>\\
+                \vec{r'}(\frac{\pi}{2})&=<-\frac{\pi}{2},1,1>\\
+                \parallel\vec{r'}(\frac{\pi}{2})\parallel&=\parallel<-\frac{\pi}{2},1,1>\parallel=\sqrt{\frac{\pi^2}{4}+2}\\
+                \vec{r''}(t)&=<-t\cos(t)-\sin(t)-\sin(t),-t\sin(t)+\cos(t)+\cos(t),0>\\
+                &=<-t\cos(t)-2\sin(t),-t\sin(t)+2\cos(t),0>\\
+                \vec{r''}(\frac{\pi}{2})&=<-2,-\frac{\pi}{2},0>
+            \end{align*}
+            Now that we have all the piece we need, we just plug it all into the curvature equation.\\
+            $\vec{r'}(\pi/2)\times\vec{r''}(\pi/2)=
+            \begin{vmatrix}
+                i & j & k \\
+                -\frac{\pi}{2} & 1 & 1 \\
+                -2 & -\frac{\pi}{2} & 0
+            \end{vmatrix}
+            =<\frac{\pi}{2},-2,\frac{\pi^2}{4}+2>$
+            Our equation for curvature is therefore
+            $$K(\frac{\pi}{2})=\frac{\parallel<\frac{\pi}{2},-2,\frac{\pi^2}{4}+2>\parallel}{(\frac{\pi^2}{4}+2)^{3/2}}=\frac{\sqrt{\frac{\pi^2}{4}+4+(\frac{\pi^2}{4}+2)^2}}{(\frac{\pi^2}{4}+2)^{3/2}}$$
+            You can do the insane amount of computation if you'd like, but it's sufficient to just plug this into a calculator.
+        \end{exmp*}
+
+        \subsection{Curvature of functions}
+
+        The concept of curvature can also be applied to functions $y=f(x)$ since a parametrization of a function like this is $\vec{r}(x)=<x,f(x),0>$
+        $$\vec{r'}(x)=<1,f'(x),0>$$
+        $$\vec{r''}(x)=<0,f''(x),0>$$
+        $\vec{r'}(x)\times\vec{r''}(x)=
+        \begin{vmatrix}
+            i & j & k \\
+            1 & f'(x) & 0 \\
+            0 & f''(x) & 0
+        \end{vmatrix}
+        =k(f''(x))$
+        Therefore $\parallel\vec{r'}\times\vec{r''}\parallel=\lvert f''(x)\rvert$. The curvature of any function $y=f(x)$ can be written as
+        $$K(x)=\frac{\lvert f''(x)\rvert}{(1+(f'(x))^2)^{3/2}}$$
+        \begin{exmp*}
+            Find $K(x)$ for $f(x)=x^2$
+
+            $f'(x)=2x$ and $f''(x)=2$. Therefore $K(x)$ is
+            $$K(x)=\frac{2}{(1+4x^2)^{3/2}}$$
+        \end{exmp*}
     \section{\S 13.4 Acceleration Vector}
     \section{\S 14.1 Multivariable Functions}
     \section{\S 14.2 Limits and Continuity}
