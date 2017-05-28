@@ -15,7 +15,7 @@
 \allowdisplaybreaks
 %\usepackage[dvipsnames]{xcolor}   %May be necessary if you want to color links
 \usepackage{graphicx}
-\graphicspath{{Images/}}
+\graphicspath{{images/}}
 \author{Sarah Randall}
 \date{Last updated: \today}
 \title{MATH 222: Week 3}
@@ -198,8 +198,46 @@
         \begin{def*}
             A function of two variables is a rule that assigns to each ordered pair $(x,y)$ in a set $D$ the unqiue real number $f(x,y)$. We write that $z=f(x,y)$
         \end{def*}
-        The domain of $f(x,y)$ is the set of all $x,y)\in\R^2$ where $f(x,y)$ is a well-defined real number. This means that $f(x,y)$ cannot output nothing nor can it output more than one value.
+        The domain of $f(x,y)$ is the set of all $x,y)\in\R^2$ where $f(x,y)$ is a well-defined real number. This means that $f(x,y)$ cannot output nothing nor can it output more than one value (For those who have taken Linear Algebra 2 or Discrete Mathematics, our function must be injective and surjective).
+
+        \begin{exmp*}
+            Find the domains of the functions $f(x,y)=\sqrt{xy}$ and $f(x,y)=\ln(y-x^2+1)$.
+
+            For the first function, $\sqrt{xy}$ will have non-real output if $xy$ is negative. This means we either need both $x$ and $y$ to be positive or negative. Therefore the domain of this function is $x\geq 0,\ y\geq 0$ and $x\leq 0,\ y\leq 0$.
+
+            For the second function, we can't have the natural log of a negative number because there is no number $n$ such that $e^n$ is a negative number. This means we need $y-x^2+1\geq 0$. Slightly rewriting this gives the domain as $y\geq x^2-1$, which is a parabola. To help visualiza this, a quick test tells us that $(0,2)$ will gives us real output for this function but $(0,-2)$ will not. This implies that since this parabola is concave up, any value of $(x,y)$ on or above the parabola is in the domain of the function.
+        \end{exmp*}
+
+        \begin{def*}
+            We say that the graph of a function with 2 variables is the set of all $(x,y,z)\in\R^3$ such that $z=f(x,y)$ for all $(x,y)$ in the domain of the function.
+        \end{def*}
+
+        \subsection{Level Curves}
+
+        \begin{def*}
+            The level curves of a function $z=f(x,y)$ are the curves with equation $k=f(x,y)$ for some constant $k$ in the range of $f(x,y)$. Essentially, we are finding all $(x,y)$ points that make $z=k$. Drawings of the level curves of a function will look sort of like a layer cake.
+        \end{def*}
+        A good example given in class of level curves is a contour map, where each line represents a certain elevation. Level curves can be useful for quickly getting a general shape of a function by finding a few of its level curves. We will be using level curves more in the future.
     \section{\S 14.2 Limits and Continuity}
+        \begin{def*}
+            Let $f$ be a function of 2 variables with domain $D$ that includes a "neighborhood" around the point $(a,b)$. We say that the limit of $f(x,y)$ as $(x,y)$ appraoches $(a,b)$ is $L$, written as
+            $$\Lim{x,y\Rightarrow a,b}f(x,y)=L$$
+            if for every number $\varepsilon>0$ there is a corresponding number $\delta>0$ such that if $(x,y)$ is in the domain D and $0<\sqrt{(x-a)^2+(y-b)^2}<\delta$ (the distance between $(x,y)$ and $(a,b)$ is greater than zero and less than $\delta$), then $\lvert f(x,y)-L\rvert<\varepsilon$.
+        \end{def*}
+
+        This sounds pretty obtuse (and it is) so let's try to understand this definition a little better.
+
+        Say we have the following surface which is given by $z=sin(y)+sin(x)$:
+        \begin{figure}[!h]
+            \centering
+            \includegraphics{z=sin(y)+sin(x).png}
+        \end{figure}
+
+        The limits of all points on this surface exist because there are no "ledges" on the surface that would create single-sided limits that don't agree.
+
+        I couldn't find any extreme images of a function where a limit would not exist, but image a function that results in two flat surfaces at different elevations. If a point $(a,b)$ were on the edge of one of these surfaces just before the elevation change, the limit would not exist at $(a,b)$. Appraoching $(a,b)$ from the direction of the surface with higher elevation would gives one limit and approaching from the other would gives another limit.
+
+        In order to prove this kind of limit exists, we need to prove that the limit of $f(x,y)$ as $(x,y)$ approaches $(a,b)$ is the same no matter the direction in which you approach $(a,b)$. Like all "for all" proofs, it is harder to prove that the limit exists than it is to prove that the limit does not exist. To prove it doesn't exist we just need to find two paths to $(a,b)$ that result in different limits.
     \section{\S 14.3 Partial Derivatives}
     \section{\S 14.4 Tangent planes, linear approximation}
 \end{document}
