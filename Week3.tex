@@ -221,7 +221,7 @@
     \section{\S 14.2 Limits and Continuity}
         \begin{def*}
             Let $f$ be a function of 2 variables with domain $D$ that includes a "neighborhood" around the point $(a,b)$. We say that the limit of $f(x,y)$ as $(x,y)$ appraoches $(a,b)$ is $L$, written as
-            $$\Lim{x,y\Rightarrow a,b}f(x,y)=L$$
+            $$\Lim{x,y\rightarrow a,b}f(x,y)=L$$
             if for every number $\varepsilon>0$ there is a corresponding number $\delta>0$ such that if $(x,y)$ is in the domain D and $0<\sqrt{(x-a)^2+(y-b)^2}<\delta$ (the distance between $(x,y)$ and $(a,b)$ is greater than zero and less than $\delta$), then $\lvert f(x,y)-L\rvert<\varepsilon$.
         \end{def*}
 
@@ -237,7 +237,45 @@
 
         I couldn't find any extreme images of a function where a limit would not exist, but image a function that results in two flat surfaces at different elevations. If a point $(a,b)$ were on the edge of one of these surfaces just before the elevation change, the limit would not exist at $(a,b)$. Appraoching $(a,b)$ from the direction of the surface with higher elevation would gives one limit and approaching from the other would gives another limit.
 
+        \subsection{Proving DNE}
+
         In order to prove this kind of limit exists, we need to prove that the limit of $f(x,y)$ as $(x,y)$ approaches $(a,b)$ is the same no matter the direction in which you approach $(a,b)$. Like all "for all" proofs, it is harder to prove that the limit exists than it is to prove that the limit does not exist. To prove it doesn't exist we just need to find two paths to $(a,b)$ that result in different limits.
+
+        We can test for DNE by substituting $y$ or $x$ with different values or functions, and then finding the limit of the resulting single-variable function. Some common substitutions to make are $y=0$, $x=0$, $y=x$, $y=x^2$. These would, respectively, check the limit on the x-axis, the y-axis, the line $y=x$, and the parabola $y=x^2$. An easy way to test a lot of paths is by substituting $y=mx$, the general equation of a line. If $m$ cannot be removed entirely from the expression, this implies that the limit depends on the direction from which $(a,b)$ is approached. Therefore the limit doesn't exist.
+
+        \begin{exmp*}
+            Show that $\Lim{x,y\rightarrow 0,0}\frac{x^2-y^2}{x^2+y^^4}$ does not exist.
+
+            Let $y=mx$
+
+            $$\Lim{x,mx\rightarrow 0,0}\frac{x^2-m^2x^2}{x^2+m^2x^2}=\Lim{x,mx\rightarrow 0,0}\frac{1-m^2}{1+m^2}$$
+            We cannot get rid of the $m$. Therefore the limit does not exist because the limit depends on the direction you appraoch $(0,0)$
+        \end{exmp*}
+
+        \subsection{Proving limits exist}
+
+        The only way we can prove that these limits DO exist in this course is by using polar coordinates. We must take the limits and make the following substitutions:
+        $$x=r\sin(\theta),\ y=r\cos(\theta),\ x^2+y^2=r^2$$
+        This allows us to check the the limit for all angles of approach, represented by $\theta$.
+        \begin{exmp*}
+            Using polar coordinates, show that $\Lim{x,y\rightarrow 0,0} \frac{xy^2}{x^2+y^2}=0$
+
+            First, make the polar substitutions.
+            $$\Lim{r\rightarrow 0}\frac{r\cos(\theta)r^2\sin^2(\theta)}{r^2}$$
+            $$\Lim{r\rightarrow 0}r\cos(\theta)\sin^2(\theta)$$
+            We can use the squeeze theorem to evaluate this
+            $$-r\leq r\cos(\theta)\sin^2(\theta)\leq r$$
+            Since both $-r$ and $r$ are 0 when $r=0$, by the squeeze theorem our limit must also approach zero. Therefore:
+            $$\Lim{x,y\rightarrow 0,0}\frac{xy^2}{x^2+y^2}=0$$
+        \end{exmp*}
+        \begin{def*}A function $f(x,y)$ is continuous at $(x,y)=(a,b)$ if
+            $$\Lim{x,y\rightarrow a,b}f(x,y)=f(a,b)$$
+        \end{def*}
+        There are a few general rules about continuity for certain types of functions. All multivariable polynomials are always continuous, similar to the behavior for single variable polynomials. All multivariable rational functions are continuous only on their domain, where they are not undefined and where they don't output non-real values.
     \section{\S 14.3 Partial Derivatives}
+        Recall that in 1D, $f(x)=\Lim{h\rightarrow -}\frac{f(x+h)-f(x)}{h}$.
+        Derivatives tell us the rise over the run as we take infinitely small steps in the $x$ direction.
+
+        We can compute the same quantity for functions of multiple variables, except not ther are more directions in which we can compute the rise over the run.
     \section{\S 14.4 Tangent planes, linear approximation}
 \end{document}
