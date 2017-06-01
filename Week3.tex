@@ -194,6 +194,7 @@
         For convenience sake, since we'll often be computing $\vec{r},\ \vec{r'},\ \vec{r''}$ it would be nice to have equations for these components in terms of these vectors. The book goes into more deal why they do what they do to derive these equations, but here they are:
         $$a_T=\frac{\vec{r'}(t)\cdot\vec{r''}(t)}{\parallel\vec{r'}(t)\parallel}$$
         $$a_N=\frac{\parallel\vec{r'}(t)\times\vec{r''}(t)\parallel}{\parallel\vec{r'}(t)\parallel}$$
+
     \section{\S 14.1 Multivariable Functions}
         \begin{def*}
             A function of two variables is a rule that assigns to each ordered pair $(x,y)$ in a set $D$ the unqiue real number $f(x,y)$. We write that $z=f(x,y)$
@@ -255,7 +256,7 @@
         \subsection{Proving limits exist}
 
         The only way we can prove that these limits DO exist in this course is by using polar coordinates. We must take the limits and make the following substitutions:
-        $$x=r\sin(\theta),\ y=r\cos(\theta),\ x^2+y^2=r^2$$
+        $$x=r\cos(\theta),\ y=r\sin(\theta),\ x^2+y^2=r^2$$
         This allows us to check the the limit for all angles of approach, represented by $\theta$.
         \begin{exmp*}
             Using polar coordinates, show that $\Lim{x,y\rightarrow 0,0} \frac{xy^2}{x^2+y^2}=0$
@@ -273,9 +274,24 @@
         \end{def*}
         There are a few general rules about continuity for certain types of functions. All multivariable polynomials are always continuous, similar to the behavior for single variable polynomials. All multivariable rational functions are continuous only on their domain, where they are not undefined and where they don't output non-real values.
     \section{\S 14.3 Partial Derivatives}
-        Recall that in 1D, $f(x)=\Lim{h\rightarrow -}\frac{f(x+h)-f(x)}{h}$.
+        Recall that in 1D, $f(x)=\Lim{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}$.
         Derivatives tell us the rise over the run as we take infinitely small steps in the $x$ direction.
 
         We can compute the same quantity for functions of multiple variables, except not ther are more directions in which we can compute the rise over the run.
+
+        For equations of two variables, we can compute the rise over run in both the x direction and the y direction.
+        $$f_x=\frac{\partial f}{\partial x}=\Lim{h\rightarrow 0}\frac{f(x+h,y)-f(x,y)}{h}$$
+        $$f_y=\frac{\partial f}{\partial y}=\Lim{h\rightarrow 0}\frac{f(x,y+h)-f(x,y)}{h}$$
+
+        We compute these derivatives by treating the variable we aren't differentiating by as a constant.
+        \begin{exmp*}
+            Find $f_x$ and $f_y$ of $f(x,y)=x^2+y^2+xy+e^{xy}$
+            $$f_x=2x+0+y+ye^{xy}=2x+y+ye^{xy}$$
+            $$f_y=0+2y+x+xe^{xy}=2y+x+xe^{xy}$$
+        \end{exmp*}
+
+        \subsection{Interpretation of Partials}
+
+        We can use partials to find the tangent plane to a point on a surface or curve. Since the derivative of a single variable function gives the slope of the tangent line, the derivatives of two variable functions give the slopes of two tangent lines. These two lines define a plane, and that plane is tangent to the point on the curve where the derivatives were evaluated.
     \section{\S 14.4 Tangent planes, linear approximation}
 \end{document}
